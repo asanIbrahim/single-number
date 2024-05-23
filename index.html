@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <header>Hello Team</header>
+</head>
+<body>
+    <script>
+//  A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+//Given a string s, return true if it is a palindrome, or false otherwise.
+
+const values= 121;
+
+function isPalindrome(str){
+  let convertString = str.toString()
+  let reverseTheWord = convertString.split('').reverse().join('')
+  return convertString === reverseTheWord
+}
+ console.log(isPalindrome(values))
+
+ function isPalidrome1 (str){
+  return str < 0 ? false : str === +str.toString().split("").reverse().join("")
+ }
+
+ console.log(isPalidrome1(values));
+
+    </script>
+    
+</body>
+</html>

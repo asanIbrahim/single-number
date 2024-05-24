@@ -8,28 +8,46 @@
   </head>
   <body>
     <script>
-      //  Write a function to find the longest common prefix string amongst an array of strings.
-      //  If there is no common prefix, return an empty string "".
-      let  strs = ["flower","flow","flight"]
-      function longestCommonPrefix(str) {
-        if (str.length === 0) {
-          return "";
-        }
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+// An input string is valid if:
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Every close bracket has a corresponding open bracket of the same type.
+ // Example 1:
+// Input: s = "()"
+// Output: true
+// Example 2:
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+// Input: s = "(]"
+// Output: false
 
-        let prefix = str[0];
+function isValid(str){
+  let newValue = []
 
-        for (i = 1; i < str.length; i++) {
-          while (str[i].indexOf(prefix) !== 0) {
-            prefix = prefix.substring(0, prefix.length - 1);
-            if (prefix === "") {
-              return "";
-            }
-          }
-        }
-       return prefix
-      }
-      console.log(longestCommonPrefix(strs));
-      //fl
+  for(i =0 ; i < str.length ; i++){
+     if(str[i] == "{"){
+      newValue.push('}')
+     } else if (str[i] == '[' ){
+      newValue.push(']')
+     }else if(str[i] == '('){
+      newValue.push(')')
+     }else if( newValue.pop() !== str[i]){
+      return false
+     }
+  }
+  return !newValue.length
+}
+
+console.log(isValid('{]'));
+/// output - false
+console.log(isValid('{}'));
+/// output - True
+console.log(isValid('[]'));
+/// output - True
+console.log(isValid('()'));
+/// output - True
     </script>
   </body>
 </html>
